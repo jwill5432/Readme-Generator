@@ -32,8 +32,8 @@ Tested several times using the node.js command prompt. Running
 The creator of this progam is John Williams, with assistance of the staff at the Rutgers coding bootcamp.
 
 ## Contact
-[jwill5432](https://github.com/jwill5432) ,
-jwill21345@gmail.com, Feel free to contact me with any questions on the program or follow up deveopment.
+Github: [jwill5432](https://github.com/jwill5432) ,
+jwill21345@gmail.com, Feel free to contact me with any questions on the program or follow up development.
 
 ## License
 MIT
