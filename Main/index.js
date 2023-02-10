@@ -1,67 +1,100 @@
-const inquirer = require('inquirer');
 const fs = require('fs');
+const inquirer = require('inquirer');
 
-const generateHTML = ({ name, location, github, linkedin }) =>
-  `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-  <title>Document</title>
-</head>
-<body>
-  <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Hi! My name is ${name}</h1>
-    <p class="lead">I am from ${location}.</p>
-    <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-    <ul class="list-group">
-      <li class="list-group-item">My GitHub username is ${github}</li>
-      <li class="list-group-item">LinkedIn: ${linkedin}</li>
-    </ul>
-  </div>
-</div>
-</body>
-</html>`;
+const questions = [
+  {
+    type: 'input',
+    name: 'projectname',
+    message: 'Project Name:'
+  },
+  {
+    type: 'input',
+    name: 'description',
+    message: 'Project Description:'
+  },
+  {
+    type: 'input',
+    name: 'installation',
+    message: 'Project Installation'
+  },
+  {
+    type: 'input',
+    name: 'usage',
+    message: 'How do you use your project?'
+  },
+  {
+    type: 'input',
+    name: 'contributing',
+    message: 'If people want to contribute, how can they?'
+  },
+  {
+    type: 'input',
+    name: 'tests',
+    message: 'How has the project been tested?'
+  },
+  {
+    type: 'input',
+    name: 'credits',
+    message: 'Who worked on the project?'
+  },
+  {
+    type: 'input',
+    name: 'github_username',
+    message: 'What is your GitHub username?'
+  },
+  {
+    type: 'input',
+    name: 'email',
+    message: 'What is your Email address?'
+  },
+  {
+    type: 'input',
+    name: 'license',
+    message: 'Please provide the license for your project:'
+  }
+];
 
-inquirer
-  .prompt([
-    {
-      type: 'input',
-      name: 'name',
-      message: 'What is your name?',
-    },
-    {
-      type: 'input',
-      name: 'location',
-      message: 'Where are you from?',
-    },
-    {
-      type: 'input',
-      name: 'hobby',
-      message: 'What is your favorite hobby?',
-    },
-    {
-      type: 'input',
-      name: 'food',
-      message: 'What is your favorite food?',
-    },
-    {
-      type: 'input',
-      name: 'github',
-      message: 'Enter your GitHub Username',
-    },
-    {
-      type: 'input',
-      name: 'linkedin',
-      message: 'Enter your LinkedIn URL.',
-    },
-  ])
-  .then((answers) => {
-    const htmlPageContent = generateHTML(answers);
+inquirer.prompt(questions).then(answers => {
+  let readme = `# ${answers.projectname}
+  
+## Table of Contents
+- [Description](#description)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Credits](#credits)
+- [Contact](#contact)
+- [License](#license)
+  
+## Description
+${answers.description}
 
-    fs.writeFile('index.html', htmlPageContent, (err) =>
-      err ? console.log(err) : console.log('Successfully created index.html!')
-    );
+## Installation
+${answers.installation}
+
+## Usage
+${answers.usage}
+
+## Contributing
+${answers.contributing}
+
+## Tests
+${answers.tests}
+
+## Credits
+${answers.credits}
+
+## Contact
+[${answers.github_username}](https://github.com/${answers.github_username}) ,
+${answers.email}, Feel free to contact me with any questions on the program or follow up deveopment.
+
+
+## License
+${answers.license}`;
+
+  fs.writeFile('README.md', readme, (err) => {
+    if (err) throw err;
+    console.log('The README has been generated!');
   });
+});

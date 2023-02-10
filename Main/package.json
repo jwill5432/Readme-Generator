@@ -1,14 +1,15 @@
 {
-  "name": "mini-project",
+  "name": "readme-generator",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": ""
   },
-  "author": "",
-  "license": "ISC",
+  "author": "John Williams",
+  "license": "MIT",
   "dependencies": {
-    "inquirer": "8.2.4"
-  }
+    "inquirer": "^8.2.4"
+  },
+  "devDependencies": {},
+  "description": ""
 }
