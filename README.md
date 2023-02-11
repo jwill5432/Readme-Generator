@@ -26,7 +26,7 @@ Navigate to the file in the command line, enter "node index.js" and enter anythi
 Contact jwill2135@gmail.com with any ideas on how to contribute, or more information on how it was created.
 
 ## Tests
-Tested several times using the node.js command prompt. Running 
+Tested several times using the node.js command prompt.
 
 ## Credits
 The creator of this progam is John Williams, with assistance of the staff at the Rutgers coding bootcamp.
